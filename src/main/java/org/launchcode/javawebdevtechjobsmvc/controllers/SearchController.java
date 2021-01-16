@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.columnChoices;
 
@@ -24,5 +25,13 @@ public class SearchController {
     }
 
     // TODO #3 - Create a handler to process a search request and render the updated search view.
+
+    @RequestMapping(value= {"/search/results"})
+    public String searchResults(Model model) {
+        model.addAttribute("results", columnChoices.values());
+        return "/search/results";
+
+    }
+
 
 }
